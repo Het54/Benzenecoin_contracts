@@ -7,7 +7,7 @@ contract BenzeneToken{
     string public standard = "Benzene Coin v1.0";
     uint public totalSupply;
 
-    event transfer(
+    event Transfer(
         address indexed _from,
         address indexed _to,
         uint256 _value
@@ -28,8 +28,12 @@ contract BenzeneToken{
     }
 
     function transfer(address _to, uint256 _value) public returns(bool success) {
-        allowance[msg.sender][_spender] = _value;
-        emit Approval(msg.sender, _spender, _value);
+        require(balanceOf[msg.sender] >= _value);
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
+
+        emit Transfer(msg.sender, _to, _value);
+        
         return true;
     }
 
@@ -47,6 +51,9 @@ contract BenzeneToken{
         balanceOf[_to] += _value;
 
         allowance[_from][msg.sender] -= _value;
+
+        emit Transfer(_from, _to, _value);
+
 
         return true;
 
