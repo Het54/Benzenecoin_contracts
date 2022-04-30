@@ -8,9 +8,7 @@ function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Con
             });   
     });
     app.get('/transfer', async (request, response) => {
-        // benzeneToken_Contract.methods.transfer("0x81a81447Bb25387DF06bEE69e5c183BCF280Aa92",10).send({from: "0xFdcd021B3103DBd26497DD46fa06619d2e07c51E",
-            
-        //     gas: 500000}).then(console.log).catch(error => {console.log(error)})
+       
         var count = await web3.eth.getTransactionCount("0xFdcd021B3103DBd26497DD46fa06619d2e07c51E");
         var gasPriceGwei = 3;
         var gasLimit = 3000000;
