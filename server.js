@@ -20,6 +20,6 @@ const benzeneToken_Contract = new web3.eth.Contract(CONTACT_ABI_BT.CONTACT_ABI_B
 const benzeneTokenSale_Contract = new web3.eth.Contract(CONTACT_ABI_BTS.CONTACT_ABI_BTS, CONTACT_ADDRESS_BTS.CONTACT_ADDRESS_BTS);
 
 routes(web3, app, accounts, benzeneToken_Contract,benzeneTokenSale_Contract);
-app.listen(process.env.PORT || 3000, () => {
-    console.log('listening on port '+ (process.env.PORT || 3001));
+app.listen(5000, () => {
+    console.log('listening on port '+ (process.env.PORT || 3000));
 });
