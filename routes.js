@@ -51,6 +51,9 @@ function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Con
         const acc = web3.eth.accounts.create();
         console.log(acc)
     });
+    app.get('/', async (request, response) => {
+        response.json("Server running")
+    });
     app.get('/balance', async (request, response) => {
         const address = "0x81a81447Bb25387DF06bEE69e5c183BCF280Aa92";
         const name = benzeneToken_Contract.methods.balanceOf(address).call().then(console.log)
