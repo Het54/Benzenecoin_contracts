@@ -1,10 +1,9 @@
 const { error } = require('console');
 function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Contract) {
     app.get('/price', async (request, response) => {
-            const name = benzeneToken_Contract.methods.name().call().then(console.log)
             benzeneTokenSale_Contract.methods.tokenPrice().call().then((i)=>{
-                
-                console.log(web3.utils.fromWei(i, 'ether'))
+                response.json(web3.utils.fromWei(i, 'ether'))
+                console.log()
             });   
     });
     app.get('/transfer', async (request, response) => {
