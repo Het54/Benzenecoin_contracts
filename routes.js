@@ -31,22 +31,21 @@ function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Con
         tx.sign(privKey);
         var serializedTx = tx.serialize();
         console.log(`Attempting to send signed tx:  ${serializedTx.toString('hex')}\n------------------------`);
-        var receipt =  web3.eth.signTransaction(rawTransaction,privKey,(err,signedtx)=>{
+        var receipt =  await web3.eth.accounts.signTransaction(rawTransaction,"109b563fb3a28cf86de55b38a969a3dfbfc3421d10e763c2343cac9a81c23e01",(err,signedtx)=>{
             if(err)
             console.log(err);
             else{
-                console.log(signedtx);
-                web3.eth.sendSignedTransaction(signedTx.rawTransaction,privKey,(err,res)=>{
+               // console.log(signedtx);
+                web3.eth.sendSignedTransaction(signedtx.rawTransaction,"109b563fb3a28cf86de55b38a969a3dfbfc3421d10e763c2343cac9a81c23e01",(err,res)=>{
                     if(err)
                 console.log(err);
                 else{
-                console.log(res)
+                console.log("true")
                     }
                 })
             }
             
         });
-        console.log(`Receipt info: \n${JSON.stringify(receipt, null, '\t')}\n------------------------`);
         
      
     });
