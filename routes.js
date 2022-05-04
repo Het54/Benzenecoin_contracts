@@ -37,6 +37,7 @@ function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Con
                     if(err)
                 console.log(err);
                 else{
+                console.log(res);
                 response.send("true");
                     }
                 })
