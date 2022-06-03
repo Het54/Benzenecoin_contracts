@@ -6,7 +6,7 @@ function routes(web3, app,  accounts, benzeneToken_Contract,benzeneTokenSale_Con
                 console.log()
             });   
     });
-    app.get('/transfer', async (request, response) => {
+    app.post('/transfer', async (request, response) => {
        
         var count = await web3.eth.getTransactionCount("0xFdcd021B3103DBd26497DD46fa06619d2e07c51E");
         var gasLimit = 3000000;
